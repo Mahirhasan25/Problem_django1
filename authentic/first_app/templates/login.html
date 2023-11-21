@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div style="width: 50%; margin: auto;">
+    <form method="post" novalidate>
+        <!-- {{form|crispy}} -->
+        {% csrf_token %}
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            {{ form.errors }}
+        </div>
+        {% endif %}
+        {{form|crispy}}
+        <br>
+        <button class="btn btn-primary" type="submit"> Login </button>
+    </form>
+</div>
+{% endblock content %}
